@@ -44,34 +44,12 @@ void ( valueless )
  */
 
 //3)
-/*
+
 void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
-    int x = 25;
-    double y = 25.5;
-    bool isLearning = true;
-    char channel = 'a';
-    float gain = 5.0f;
-
-    ignoreUnused(number, x, y, isLearning, channel, gain); //passing each variable declared to the ignoreUnused() function
-}
-*/
-/*
- 10 functions
- example:
- 
-bool rentACar(int rentalDuration, int carType = 0)  //function declaration with random number of arguments, arbitrary number of arguments have default value
-{ 
-    ignoreUnused(rentalDuration, carType); //passing each function parameter to the ignoreUnused() function
-    return {}; //if your function returns something other than void, add 'return {};' at the end of it.
-} 
-
-*/
-
-void variableDeclarations()
-{
+    
     int score = 100;
     int countDown = 50;
     int age = 42;
@@ -92,34 +70,47 @@ void variableDeclarations()
     double threshold = 1.0e-24;
     double successRatio = 16/19;
 
-    ignoreUnused ( score, firstLetter, gameOver, progress, finalSampleRate  );
-    ignoreUnused (countDown, plane, success, stepSize, threshold);
-    ignoreUnused (age, delimiter, active, experienceRating, successRatio );
-
+    ignoreUnused( score, firstLetter, gameOver, progress, finalSampleRate  );
+    ignoreUnused(countDown, plane, success, stepSize, threshold);
+    ignoreUnused(age, delimiter, active, experienceRating, successRatio );
+    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
 }
+
+/*
+ 10 functions
+ example:
+ */
+bool rentACar(int rentalDuration, int carType = 0)  //function declaration with random number of arguments, arbitrary number of arguments have default value
+{ 
+    ignoreUnused(rentalDuration, carType); //passing each function parameter to the ignoreUnused() function
+    return {}; //if your function returns something other than void, add 'return {};' at the end of it.
+} 
+
+
+
 // 1 
-int changeSliderValue ( int slide_id, int sliderType = 1 )
+int changeSliderValue(int slide_id, int sliderType = 1 )
 {
     ignoreUnused(slide_id, sliderType);
     return {};
 }
 
 //2 
-float assignRandomValueToFader ( int fader_id, float seed, bool absolute=true)
+float assignRandomValueToFader(int fader_id, float seed, bool absolute=true)
 {
     ignoreUnused(fader_id, seed, absolute);
     return {};
 }
 
 //3
-bool isAnyKeyPressed () 
+bool isAnyKeyPressed() 
 {
     ignoreUnused();
     return {};
 }
 
 //4
-void startTimer (int timer_id, double startValue, double duration) 
+void startTimer(int timer_id, double startValue, double duration) 
 {
     ignoreUnused(timer_id, startValue, duration);
 
@@ -133,37 +124,36 @@ char getKeyboardInput()
 }
 
 //6
-double scaledPi ( int scaleFactor ) 
+double scaledPi(int scaleFactor) 
 {
-    ignoreUnused (scaleFactor);
+    ignoreUnused(scaleFactor);
     return {};
 }
 
 //7
-void emptyBuffer ( char buffer_ID, int tries = 2) 
+void emptyBuffer(char buffer_ID, int tries = 2) 
 {
-    ignoreUnused (buffer_ID, tries);
+    ignoreUnused(buffer_ID, tries);
 }
 
 //8
-float pitchBendNote ( float range, bool smoothing, int resetValue = 0) 
+float pitchBendNote(float range, bool smoothing, int resetValue = 0) 
 {
-    ignoreUnused (range, smoothing, resetValue);
+    ignoreUnused(range, smoothing, resetValue);
     return {};
 }
 
 //9
-int findOccurrencesOf (char findLetter, int stringBuffer_ID, int startIndex = 0 )
+int findOccurrencesOf(char findLetter, int stringBuffer_ID, int startIndex = 0)
 {
-    ignoreUnused (stringBuffer_ID, findLetter, startIndex);
+    ignoreUnused(stringBuffer_ID, findLetter, startIndex);
     return {};
 }
 
 //10
-
-double stochasticGrowth (double stepSize, char direction, float seed = 0.909303f) 
+double stochasticGrowth(double stepSize, char direction, float seed = 0.909303f) 
 {
-    ignoreUnused (direction, stepSize, seed);
+    ignoreUnused(direction, stepSize, seed);
     return {};
 }
 
@@ -174,16 +164,16 @@ int main()
     //example of calling that function
    // rentACar(6, 2); 
     
-changeSliderValue(1);
-assignRandomValueToFader(16, 0.1f);
-isAnyKeyPressed();
-startTimer(16, 0.0, 30000);
-getKeyboardInput();
-scaledPi(4);
-emptyBuffer('z');
-pitchBendNote ( 12.0f, true);
-findOccurrencesOf ('0', 12);
-stochasticGrowth (0.01, 'E');
+    changeSliderValue(1);
+    assignRandomValueToFader(16, 0.1f);
+    isAnyKeyPressed();
+    startTimer(16, 0.0, 30000);
+    getKeyboardInput();
+    scaledPi(4);
+    emptyBuffer('z');
+    pitchBendNote( 12.0f, true);
+    findOccurrencesOf('0', 12);
+    stochasticGrowth(0.01, 'E');
     
     std::cout << "good to go!" << std::endl;
     return 0;    
